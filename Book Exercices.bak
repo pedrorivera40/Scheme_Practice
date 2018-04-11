@@ -1,0 +1,21 @@
+#lang racket
+
+; Exercise 1: Write a Scheme function that compute the volume of a sphere given its radius...
+
+(define pi 3.14159)
+(define (sphere_volume radius) (* (/ 4 3) pi radius radius radius))
+(sphere_volume 3)
+
+; Exercise 2: Write a Scheme function that computes the real roots of a given quadratic equation.
+; If the roots are complex, print an appropriate message indicating this.
+
+(define (discriminant a b c) (- (* b b) (* 4 a c)))
+(define (solve_quadratic a b c)
+  (cond
+    ((> (discriminant a b c) 0) (list (/ (+ (- 0 b) (sqrt (discriminant a b c))) 2 a) (/ (- (- 0 b) (sqrt (discriminant a b c))) 2 a)))
+    ((= (discriminant a b c) 0) (list (/ (- 0 b) 2 a)))
+    (else (display "COMPLEX ROOTS!"))
+   ))
+(solve_quadratic 1 2 0)
+(solve_quadratic 1 -2 1)
+(solve_quadratic 1 -2 100)
